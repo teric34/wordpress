@@ -19,9 +19,9 @@ RUN php -r "unlink('composer-setup.php');"
 #    install-php-extensions xdebug
 #RUN install-php-extensions @composer-2.0.8
 
-COPY composer.json /usr/local/bin/composer.json
-RUN php composer.phar install
-WORKDIR /var/www/html
+# COPY composer.json /usr/local/bin/composer.json
+# RUN php composer.phar install
+# WORKDIR /var/www/html
 
 # User Add for socket
 RUN addgroup nginx
@@ -41,10 +41,10 @@ RUN docker-php-ext-install mysqli zip gettext opcache bcmath sockets
 RUN { \
    echo 'cgi.fix_pathinfo = 0'; \
    echo 'date.timezone = "Asia/Tokyo"'; \
-#   echo 'extension = mysqli'; \
-#  echo 'extension = pdo_mysql'; \
-#  echo 'max_execution_time=-1'; \
-#  echo 'memory_limit=-1'; \
-#  echo 'post_max_size=-1'; \
-#  echo 'upload_max_filesize=100M'; \
+   echo 'extension = mysqli'; \
+   echo 'extension = pdo_mysql'; \
+   echo 'max_execution_time=-1'; \
+   echo 'memory_limit=-1'; \
+   echo 'post_max_size=-1'; \
+   echo 'upload_max_filesize=100M'; \
 } > /usr/local/etc/php/conf.d/wp-recommended.ini
