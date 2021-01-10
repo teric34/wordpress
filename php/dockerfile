@@ -29,7 +29,7 @@ RUN adduser nginx -D -G nginx
 # COPY ./setphp.ini /usr/local/etc/php/conf.d/setphp.ini
 
 # PHP extensions for wordpress core
-RUN apk upgrade --update && apk add --no-cache libpng-dev libjpeg freetype-dev libjpeg-turbo-dev\
+RUN apk upgrade --update && apk add --no-cache oniguruma libpng-dev libjpeg freetype-dev libjpeg-turbo-dev\
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 RUN docker-php-ext-install mysqli
