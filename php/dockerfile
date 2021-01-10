@@ -29,10 +29,13 @@ RUN adduser nginx -D -G nginx
 # COPY ./setphp.ini /usr/local/etc/php/conf.d/setphp.ini
 
 # PHP extensions for wordpress core
-RUN apk upgrade --update && apk add --no-cache oniguruma libpng-dev libjpeg freetype-dev libjpeg-turbo-dev\
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd
-RUN docker-php-ext-install mysqli
+# https://pkgs.alpinelinux.org/packages
+# https://github.com/mlocati/docker-php-extension-installer
+# > php -m
+RUN apk upgrade --update && apk add --no-cache oniguruma libpng-dev libjpeg freetype-dev libjpeg-turbo-dev libzip-dev gettext-dev\
+    && docker-php-ext-configure gd --with-freetype --with-jpeg\
+    && docker-php-ext-install -j$(nproc) gd 
+RUN docker-php-ext-install mysqli zip gettext opcache bcmath sockets
 
 # set recommended PHP.ini settings
 RUN { \
