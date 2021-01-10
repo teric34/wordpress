@@ -1,2 +1,2 @@
-FROM wordpress
-# RUN chown -R www-data /var/www/html
+FROM wordpress:5.6.0
+RUN chown -R $(whoami):$(whoami) /var/www/html

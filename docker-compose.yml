@@ -51,8 +51,8 @@ services:
       - blog
  
   blog:
-    build: ./blog
     container_name: blogsys
+    build: ./blog
     restart: always
     volumes:
       - wp-html:/var/www/html/
