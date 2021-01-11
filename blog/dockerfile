@@ -1,2 +1,3 @@
 FROM wordpress:5.6.0
-RUN chown -R $(whoami):$(whoami) /var/www/html
+# RUN chown -R $(whoami):$(whoami) /var/www/html
+RUN chown -R www-data:www-data /var/www/html
