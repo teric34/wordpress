@@ -2,9 +2,9 @@ How to use
 (1) prepare .env file under ./  
 
   [start of ".env" file]  
-  ## this is environment variables for https certification with digital ocean  
-  ## For servers other than digital ocean, change environment valiables and cert: command in docker-compose.  
-  ## More information, refer https://go-acme.github.io/lego/dns/  
+  # this is environment variables for https certification with digital ocean  
+  # For servers other than digital ocean, change environment valiables and cert: command in docker-compose.  
+  # More information, refer https://go-acme.github.io/lego/dns/  
   #cert  
   AUTH_TOKEN = [write AUTO_TOKEN from digitalocean]  
   EMAIL = [your email for let's encrypt]  
