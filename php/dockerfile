@@ -23,10 +23,10 @@ RUN mv /usr/local/etc/php/php.ini-development /usr/local/etc/php/php.ini
 # RUN php composer.phar install
 # WORKDIR /var/www/html
 
-# User Add for socket
+# User Add for socket, user/groupmod for www-data
 RUN addgroup nginx
 RUN adduser nginx -D -G nginx
-# COPY ./setphp.ini /usr/local/etc/php/conf.d/setphp.ini
+RUN apk --no-cache add shadow && groupmod -g 1033 www-data && usermod -u 1033 www-data
 
 # PHP extensions for wordpress core
 # https://pkgs.alpinelinux.org/packages

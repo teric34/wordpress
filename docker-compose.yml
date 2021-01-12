@@ -2,8 +2,8 @@ version: '3.1'
 
 services:
   cert:
-    image: xenolf/lego
-    container_name: cert_renew
+    build: ./cert
+    container_name: crt
     environment:
       DO_AUTH_TOKEN: ${AUTH_TOKEN}
     command: >

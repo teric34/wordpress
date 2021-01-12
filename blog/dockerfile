@@ -1,3 +1,7 @@
 FROM wordpress:5.6.0
 # RUN chown -R $(whoami):$(whoami) /var/www/html
+# Change group & user id of www-data to 1033 to avoid collision with xfs in phpsrv
+RUN groupmod -g 1033 www-data
+RUN usermod -u 1033 www-data
+# change file owner of /var/www/html to www-data so that the phpsrv container has access
 RUN chown -R www-data:www-data /var/www/html
