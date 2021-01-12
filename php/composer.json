@@ -1,0 +1,5 @@
+{
+  "require": {
+      "clue/zlib-react": "1.*.*"
+  }
+}

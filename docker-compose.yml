@@ -6,15 +6,19 @@ services:
     container_name: crt
     environment:
       DO_AUTH_TOKEN: ${AUTH_TOKEN}
-    command: >
-      --path /lego
-      --dns ${DNS}
-      --email ${EMAIL}
-      --domains ${DOMAINS1}
-      --domains ${DOMAINS2}
-      --accept-tos
-      renew
-      --days 3
+      DNS: ${DNS}
+      EMAIL: ${EMAIL}
+      DOMAINS1: ${DOMAINS1}
+      DOMAINS2: ${DOMAINS2}
+#    command: >
+#      --path /lego
+#      --dns ${DNS}
+#      --email ${EMAIL}
+#      --domains ${DOMAINS1}
+#      --domains ${DOMAINS2}
+#      --accept-tos
+#      renew
+#      --days 3
     volumes:
       - ./cert/accounts:/lego/accounts
       - ./cert/certificates:/lego/certificates
