@@ -72,7 +72,7 @@ services:
       - db
 
   db:
-    image: mysql:5.7
+    build: ./DB
     container_name: mysql1
     restart: always
     environment:
