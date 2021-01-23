@@ -34,6 +34,8 @@ services:
       - ./php/zzz-www.conf:/usr/local/etc/php-fpm.d/zzz-www.conf
       - php-fpm-socket:/var/run/php-fpm
       - wp-html:/var/www/html/
+    environment:
+      TZ: 'Asia/Tokyo'    
     depends_on:
       - blog
  
