@@ -9,12 +9,8 @@ services:
       - 80:80
     volumes:
       - wp-html:/var/www/html/
-    #  - ./web/html:/var/www/html
-      - ./web/cert/certificates:/lego/certificates
-      - ./web/cert/accounts:/lego/accounts
+      - cert:/lego/
       - ./web/script/shellscript.log:/tmp/shellscript.log
-      - ./web/nginx.conf:/etc/nginx/nginx.conf
-      - ./web/wd.conf:/etc/nginx/conf.d/wd.conf
       - ./web/logs/:/var/log/nginx
       - php-fpm-socket:/var/run/php-fpm
     environment:
@@ -70,6 +66,7 @@ services:
       - db:/var/lib/mysql
 
 volumes:
+  cert:
   wp-html:
   db:
   php-fpm-socket:

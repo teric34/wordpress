@@ -8,10 +8,12 @@ LOGFILE="/tmp/shellscript.log"
 #
 function lego_renew () {
     lego --path /lego --email $EMAIL --dns $DNS --domains $DOMAINS1 --domains $DOMAINS2 --accept-tos renew
+    wait
     nginx -s reload
 }
 function lego_new () {
     lego --path /lego --email $EMAIL --dns $DNS --domains $DOMAINS1 --domains $DOMAINS2 --accept-tos run
+    wait
     nginx -s reload
 }
 #

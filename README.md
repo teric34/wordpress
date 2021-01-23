@@ -5,8 +5,10 @@ How to use
    use sample.env for your reference
 
 (2) change "wd.conf" under /web  
-   server_name localhost.masa-nakajima.com;  
-    -> server_name www.yourdomain.com;  
+   modify [yourdomain.com] in the following parameters 
+      ssl_certificate /lego/certificates/_.yourdomain.com.crt;
+      ssl_certificate_key /lego/certificates/_.yourdomain.com.key;
+      server_name yourdomain.com;  
          
 (3) run  
   docker-compose build  

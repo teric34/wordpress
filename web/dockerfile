@@ -1,5 +1,8 @@
 FROM nginx:1.18.0-alpine
 
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY wd.conf /etc/nginx/conf.d/wd.conf
+
 RUN apk add --no-cache lego supervisor
 RUN mkdir /lego
 RUN mkdir /lego/accounts
