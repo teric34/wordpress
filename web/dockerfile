@@ -1,0 +1,19 @@
+FROM nginx:1.18.0-alpine
+
+RUN apk add --no-cache lego supervisor
+RUN mkdir /lego
+RUN mkdir /lego/accounts
+RUN mkdir /lego/certificates
+
+COPY /script/cron-setting /etc/cron.d/cron-setting
+COPY /script/shellscript.sh /tmp/shellscript.sh
+COPY /script/shellscript.log /tmp/shellscript.log
+RUN chmod 0644 /etc/cron.d/cron-setting
+RUN chmod 0744 /tmp/shellscript.sh
+RUN chmod 0644 /tmp/shellscript.log
+
+RUN crontab /etc/cron.d/cron-setting
+
+COPY /app.conf /etc/supervisord/conf.d/app.conf
+
+CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisord/conf.d/app.conf" ]

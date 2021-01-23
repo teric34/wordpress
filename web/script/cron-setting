@@ -1,0 +1,4 @@
+ 0 1 * * * /tmp/shellscript.sh
+ @reboot /tmp/shellscript.sh
+ #
+ 
