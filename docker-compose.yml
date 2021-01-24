@@ -11,7 +11,7 @@ services:
       - wp-html:/var/www/html/
       - cert:/lego/
       - slog:/tmp/
-#      - ./web/logs/:/var/log/nginx
+      - ./web/logs/:/var/log/nginx
       - php-fpm-socket:/var/run/php-fpm
     environment:
       TZ: "Asia/Tokyo"
