@@ -10,7 +10,7 @@ RUN mkdir /lego/certificates
 
 COPY /script/cron-setting /etc/cron.d/cron-setting
 COPY /script/shellscript.sh /tmp/shellscript.sh
-COPY /script/shellscript.log /tmp/shellscript.log
+RUN touch /tmp/shellscript.log
 RUN chmod 0644 /etc/cron.d/cron-setting
 RUN chmod 0744 /tmp/shellscript.sh
 RUN chmod 0644 /tmp/shellscript.log

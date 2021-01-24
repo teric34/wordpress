@@ -10,7 +10,7 @@ services:
     volumes:
       - wp-html:/var/www/html/
       - cert:/lego/
-      - ./web/script/shellscript.log:/tmp/shellscript.log
+      - slog:/tmp/
 #      - ./web/logs/:/var/log/nginx
       - php-fpm-socket:/var/run/php-fpm
     environment:
@@ -69,6 +69,7 @@ services:
 
 volumes:
   cert:
+  slog:
   wp-html:
   db:
   php-fpm-socket:
